@@ -1,0 +1,28 @@
+{
+  "name": "@nx-js/bindable-middleware",
+  "version": "1.0.0",
+  "description": "An NX middleware, responsible for data-binding.",
+  "main": "bindable.js",
+  "author": {
+    "name": "Miklos Bertalan",
+    "email": "miklos.bertalan@risingstack.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:nx-js/bindable-middleware.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nx-js/bindable-middleware/issues"
+  },
+  "homepage": "http://nx-framework.com",
+  "license": "MIT",
+  "keywords": [
+    "nx",
+    "middleware",
+    "data binding"
+  ],
+  "peerDependencies": {
+    "@nx-js/observe-middleware": "^1.0.0",
+    "@nx-js/attributes-middleware": "^1.0.0"
+  }
+}
