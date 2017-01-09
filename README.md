@@ -8,7 +8,7 @@ The `bindable` middleware adds the `$bindable` method to elements, which can be 
 - processes: element nodes
 - throws on: nothing
 - use as: component or content middleware
-- [docs](http://nx-framework/docs/middlewares/bind)
+- [docs](http://nx-framework.com/docs/middlewares/bind)
 
 ## Installation
 
