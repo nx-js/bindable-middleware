@@ -5,9 +5,8 @@ The `bindable` middleware adds the `$bindable` method to elements, which can be 
 - name: bindable
 - middleware dependencies: [attributes](https://github.com/nx-js/attributes-middleware)
 - all middleware dependencies: [observe](https://github.com/nx-js/observe-middleware), [attributes](https://github.com/nx-js/attributes-middleware)
-- processes: element nodes
-- throws on: nothing
-- use as: component or content middleware
+- type: component or content middleware
+- ignores: text nodes
 - [docs](http://nx-framework.com/docs/middlewares/bind)
 
 ## Installation
