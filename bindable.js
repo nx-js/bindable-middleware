@@ -29,7 +29,6 @@ function bindable (elem, state, next) {
 }
 bindable.$name = 'bindable'
 bindable.$require = ['observe', 'attributes']
-bindable.$type = ['component', 'content']
 module.exports = bindable
 
 function $bindable (params) {
