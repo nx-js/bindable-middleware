@@ -1,6 +1,6 @@
 {
   "name": "@nx-js/bindable-middleware",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An NX middleware, responsible for data-binding.",
   "main": "bindable.js",
   "author": {
@@ -22,7 +22,7 @@
     "data binding"
   ],
   "peerDependencies": {
-    "@nx-js/observe-middleware": "^1.0.0",
-    "@nx-js/attributes-middleware": "^1.0.0"
+    "@nx-js/observe-middleware": "^2.0.0",
+    "@nx-js/attributes-middleware": "^1.1.0"
   }
 }
