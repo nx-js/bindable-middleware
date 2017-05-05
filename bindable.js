@@ -7,6 +7,8 @@ const secret = {
   signal: Symbol('observing signal'),
   preventSubmit: Symbol('prevent submit')
 }
+const map = Array.prototype.map
+const forEach = Array.prototype.forEach
 const paramsRegex = /\S+/g
 const defaultParams = {mode: 'two-way', on: 'change', type: 'string'}
 
@@ -97,21 +99,38 @@ function preventDefault (ev) {
 function syncElementWithState (elem) {
   const params = elem[secret.params]
   const value = getValue(elem.$state, elem.name)
-  if (elem.type === 'radio' || elem.type === 'checkbox') {
+  if (elem.type === 'select-multiple' && Array.isArray(value)) {
+    forEach.call(elem.options, handleOption, value)
+  } else if (elem.type === 'radio' || elem.type === 'checkbox') {
     elem.checked = (value === toType(elem.value, params.type))
   } else if (elem.value !== toType(value)) {
     elem.value = toType(value)
   }
 }
 
+function handleOption (option) {
+  if (this.indexOf(option.value) !== -1) {
+    option.selected = true
+  } else {
+    option.selected = false
+  }
+}
+
 function syncStateWithElement (elem) {
   const params = elem[secret.params]
-  if (elem.type === 'radio' || elem.type === 'checkbox') {
+  if (elem.type === 'select-multiple') {
+    const value = map.call(elem.selectedOptions, optionToValue, params)
+    setValue(elem.$state, elem.name, value)
+  } else if (elem.type === 'radio' || elem.type === 'checkbox') {
     const value = elem.checked ? toType(elem.value, params.type) : undefined
     setValue(elem.$state, elem.name, value)
   } else {
     setValue(elem.$state, elem.name, toType(elem.value, params.type))
   }
+}
+
+function optionToValue (option) {
+  return toType(option.value, this.type)
 }
 
 function syncStateWithForm (form) {
